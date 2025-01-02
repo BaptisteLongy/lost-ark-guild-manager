@@ -1,0 +1,31 @@
+{
+  "name": "legendary-card-sniffer",
+  "version": "1.0.0",
+  "description": "Scan https://lostmerchants.com for posted legendary cards",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "test": "jest --detectOpenHandles",
+    "image:build": "docker build -f Dockerfile --tag europe-west9-docker.pkg.dev/lost-ark-guild-manager/legendary-card-sniffer/legendary-card-sniffer:latest .",
+    "image:publish": "docker push europe-west9-docker.pkg.dev/lost-ark-guild-manager/legendary-card-sniffer/legendary-card-sniffer:latest",
+    "docker:run": "docker run -d --name legendary-card-sniffer -p 3004:3004 -e PORT=3004 europe-west9-docker.pkg.dev/lost-ark-guild-manager/legendary-card-sniffer/legendary-card-sniffer:latest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "to do"
+  },
+  "keywords": [
+    "lost ark",
+    "lostmerchants"
+  ],
+  "author": "Baptiste Longy",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "supertest": "^7.0.0"
+  },
+  "dependencies": {
+    "express": "^4.21.2",
+    "puppeteer": "^23.10.4"
+  }
+}
